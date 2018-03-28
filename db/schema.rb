@@ -10,9 +10,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20180328210954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "benefits", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "benefit"
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_benefits_on_challenge_id"
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.boolean "acceptable"
+    t.string "cost_inaction_hy"
+    t.string "cost_inaction_yr"
+    t.string "cost_inaction_3y"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "challenge"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_challenges_on_user_id"
+  end
+
+  create_table "fears", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "fear"
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_fears_on_challenge_id"
+  end
+
+  create_table "fixes", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "fix"
+    t.bigint "fear_id"
+    t.index ["fear_id"], name: "index_fixes_on_fear_id"
+  end
+
+  create_table "preventions", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "prevention"
+    t.bigint "fear_id"
+    t.index ["fear_id"], name: "index_preventions_on_fear_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "benefits", "challenges"
+  add_foreign_key "challenges", "users"
+  add_foreign_key "fears", "challenges"
+  add_foreign_key "fixes", "fears"
+  add_foreign_key "preventions", "fears"
 end
