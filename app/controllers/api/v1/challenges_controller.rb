@@ -10,6 +10,12 @@ class Api::V1::ChallengesController < Api::V1::BaseController
     @challenge = Challenge.find(params[:id])
     @benefits = Benefit.where(challenge_id: @challenge.id)
     @fears = Fear.where(challenge_id: @challenge.id)
+    @arr_p = []
+    @arr_f = []
+    @fears.each_with_index do |f, i|
+      @arr_p << instance_variable_set("@preventions_#{i}", Prevention.where(fear_id: f.id))
+      @arr_f << instance_variable_set("@fixes_#{i}", Fix.where(fear_id: f.id))
+    end
   end
 
   def update

@@ -145,6 +145,10 @@ fixes = Fix.create([
   {
     description: 'Cheer up!',
     fear: fears[5]
+  },
+  {
+    description: 'Burn CO2',
+    fear: fears[5]
   }
 ])
 
@@ -173,6 +177,10 @@ preventions = Prevention.create([
     description: 'Buy a house in a warm country',
     fear: fears[5]
   },
+  {
+    description: 'Buy a warm coat',
+    fear: fears[5]
+  }
 ])
 
 p "seeds successfull"
