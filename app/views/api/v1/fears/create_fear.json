@@ -1,0 +1,16 @@
+{ "fear": 
+  {
+    "challeng_id": "",
+    "fear_descr": "Biggest Fear",
+    "preventions_attributes": 
+    [
+      { "prevention_descr": "do not be scared" }, 
+      { "prevention_descr": "the force will be with you" } 
+    ],
+    "fixes_attributes": 
+    [
+      { "fix_descr": "Fix1: Call for help" },
+      { "fix_descr": "Fix2: zoom"} 
+    ]
+  }
+}

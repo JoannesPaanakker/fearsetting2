@@ -1,0 +1,15 @@
+{ "challenge": 
+  {
+    "challenge_descr": "qqqqqqq optie", "cost_inaction_hy": "niet zoveel", "cost_inaction_yr": "behoorlijk", "cost_inaction_3y": "rampzalig", "acceptable": "false",
+    "benefits_attributes": 
+    [
+      { "benefit_descr": "goed voor mij" }, 
+      { "benefit_descr": "En ook voor jou" } 
+    ],
+    "fears_attributes": 
+    [
+      { "fear_descr": "Fear1: Niet goed voor mij" },
+      { "fear_descr": "Fear2: Nog slechter"} 
+    ]
+  }
+}
