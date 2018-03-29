@@ -8,7 +8,7 @@ class Api::V1::BaseController < ActionController::Base
 
 
   require 'json_web_token'
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
 
   protected
   # Validates the token and user and sets the @current_user scope
