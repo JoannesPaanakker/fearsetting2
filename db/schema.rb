@@ -16,51 +16,46 @@ ActiveRecord::Schema.define(version: 20180328210954) do
   enable_extension "plpgsql"
 
   create_table "benefits", force: :cascade do |t|
-    t.string "description"
+    t.string "benefit_descr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "benefit"
     t.bigint "challenge_id"
     t.index ["challenge_id"], name: "index_benefits_on_challenge_id"
   end
 
   create_table "challenges", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.string "challenge_descr"
     t.boolean "acceptable"
     t.string "cost_inaction_hy"
     t.string "cost_inaction_yr"
     t.string "cost_inaction_3y"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "challenge"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
   create_table "fears", force: :cascade do |t|
-    t.string "description"
+    t.string "fear_descr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "fear"
     t.bigint "challenge_id"
     t.index ["challenge_id"], name: "index_fears_on_challenge_id"
   end
 
   create_table "fixes", force: :cascade do |t|
-    t.string "description"
+    t.string "fix_descr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "fix"
     t.bigint "fear_id"
     t.index ["fear_id"], name: "index_fixes_on_fear_id"
   end
 
   create_table "preventions", force: :cascade do |t|
-    t.string "description"
+    t.string "prevention_descr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "prevention"
     t.bigint "fear_id"
     t.index ["fear_id"], name: "index_preventions_on_fear_id"
   end

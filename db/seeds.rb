@@ -34,7 +34,7 @@ users = User.create([
 
 challenges = Challenge.create([
   {
-    description: 'Going on an adventure',
+    challenge_descr: 'Going on an adventure',
     acceptable: 'false',
     cost_inaction_hy: 'bored',
     cost_inaction_yr: 'very bored',
@@ -42,7 +42,7 @@ challenges = Challenge.create([
     user: users[0],
   },
   {
-    description: 'Buy a new house',
+    challenge_descr: 'Buy a new house',
     acceptable: 'true',
     cost_inaction_hy: 'Savings',
     cost_inaction_yr: 'More savings',
@@ -50,7 +50,7 @@ challenges = Challenge.create([
     user: users[0],
   },
   {
-    description: 'Going back to school',
+    challenge_descr: 'Going back to school',
     acceptable: 'false',
     cost_inaction_hy: 'uneducated',
     cost_inaction_yr: 'still unaducated',
@@ -58,7 +58,7 @@ challenges = Challenge.create([
     user: users[1],
   },
   {
-    description: 'Sell the house',
+    challenge_descr: 'Sell the house',
     acceptable: 'false',
     cost_inaction_hy: 'no money',
     cost_inaction_yr: 'still no money',
@@ -69,116 +69,116 @@ challenges = Challenge.create([
 
 benefits = Benefit.create([
   {
-    description: 'exciting',
+    benefit_descr: 'exciting',
     challenge: challenges[0]
   },
   {
-    description: 'A new house!',
+    benefit_descr: 'A new house!',
     challenge: challenges[1]
   },
   {
-    description: 'Learn something',
+    benefit_descr: 'Learn something',
     challenge: challenges[2]
   },
   {
-    description: 'Lots of money',
+    benefit_descr: 'Lots of money',
     challenge: challenges[3]
   },
   {
-    description: 'away from home',
+    benefit_descr: 'away from home',
     challenge: challenges[0]
   },
   {
-    description: 'no repairs (for the time being)',
+    benefit_descr: 'no repairs (for the time being)',
     challenge: challenges[1]
   },
 ])
 
 fears = Fear.create([
   {
-    description: 'scary',
+    fear_descr: 'scary',
     challenge: challenges[0]
   },
   {
-    description: 'don\'t like the neighbourhood',
+    fear_descr: 'don\'t like the neighbourhood',
     challenge: challenges[1]
   },
   {
-    description: 'I am too stupid',
+    fear_descr: 'I am too stupid',
     challenge: challenges[2]
   },
   {
-    description: 'Nowhere to live',
+    fear_descr: 'Nowhere to live',
     challenge: challenges[3]
   },
   {
-    description: 'No income from work',
+    fear_descr: 'No income from work',
     challenge: challenges[0]
   },
   {
-    description: 'will not like the weather',
+    fear_descr: 'will not like the weather',
     challenge: challenges[1]
   }
 ])
 
 fixes = Fix.create([
   {
-    description: 'Drink whiskey',
+    fix_descr: 'Drink whiskey',
     fear: fears[0]
   },
   {
-    description: 'Stay in all day',
+    fix_descr: 'Stay in all day',
     fear: fears[1]
   },
   {
-    description: 'Work hard',
+    fix_descr: 'Work hard',
     fear: fears[2]
   },
   {
-    description: 'Move in with parents',
+    fix_descr: 'Move in with parents',
     fear: fears[3]
   },
   {
-    description: 'Get a job',
+    fix_descr: 'Get a job',
     fear: fears[4]
   },
   {
-    description: 'Cheer up!',
+    fix_descr: 'Cheer up!',
     fear: fears[5]
   },
   {
-    description: 'Burn CO2',
+    fix_descr: 'Burn CO2',
     fear: fears[5]
   }
 ])
 
 preventions = Prevention.create([
   {
-    description: 'Go to known areas',
+    prevention_descr: 'Go to known areas',
     fear: fears[0]
   },
   {
-    description: 'Organise welcoming party',
+    prevention_descr: 'Organise welcoming party',
     fear: fears[1]
   },
   {
-    description: 'Go to highschool',
+    prevention_descr: 'Go to highschool',
     fear: fears[2]
   },
   {
-    description: 'Buy a new house',
+    prevention_descr: 'Buy a new house',
     fear: fears[3]
   },
   {
-    description: 'Get a job',
+    prevention_descr: 'Get a job',
     fear: fears[4]
   },
   {
-    description: 'Buy a house in a warm country',
+    prevention_descr: 'Buy a house in a warm country',
     fear: fears[5]
   },
   {
-    description: 'Buy a warm coat',
+    prevention_descr: 'Buy a warm coat',
     fear: fears[5]
   }
 ])
