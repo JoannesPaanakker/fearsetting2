@@ -14,8 +14,8 @@ body (raw):
 
 { "user": {
     "email": "test5@example.com",
-    "password": "anewpassword",
-    "password_confirmation": "anewpassword"
+    "password": "123456",
+    "password_confirmation": "123456"
   } }
 
 Login user:
@@ -29,8 +29,16 @@ header:
 body (raw):
 {
   "email": "test5@example.com",
-  "password": "anewpassword"
+  "password": "123456"
 }
+
+Create Challenge
+
+POST http://localhost:3000/api/v1/challenges
+
+header:
+Authorization [authorisation token]
+
 
 
 Get list of challenges for user:

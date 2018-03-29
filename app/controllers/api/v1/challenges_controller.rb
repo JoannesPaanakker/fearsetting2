@@ -18,6 +18,16 @@ class Api::V1::ChallengesController < Api::V1::BaseController
     end
   end
 
+  def create
+    @challenge = Challenge.new(challenge_params)
+    @challenge.user = @current_user
+    if @challenge.save!
+      render :show, status: :created
+    else
+      render_error
+    end
+  end
+
   def update
     if @challenge.update(challenge_params)
       render :show
@@ -29,15 +39,19 @@ class Api::V1::ChallengesController < Api::V1::BaseController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:description, :name, :acceptable, :cost_inaction_hy, :cost_inaction_yr, :cost_inaction3y, :user_id, {:benefit_attributes => [:description]})
+    params.require(:challenge).permit(
+      :description, :name, :acceptable, :cost_inaction_hy, :cost_inaction_yr, :cost_inaction_3y, :user_id, 
+      {
+        :benefits_attributes => [:description]
+      },
+      {
+        :fears_attributes => [:description]
+      }
+    )
   end
 
   def render_error
     render json: { errors: @challenge.errors.full_messages },
       status: :unprocessable_entity
   end
-  
-  # def user_params
-  #   params.require(:user).permit(:email, :name, :password, :password_confirmation)
-  # end
 end
