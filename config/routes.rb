@@ -12,4 +12,10 @@ Rails.application.routes.draw do
       resources :challenges, only: [ :index, :show, :update, :create ]
     end
   end
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :fears, only: [ :show, :update, :create ]
+    end
+  end
+
 end
