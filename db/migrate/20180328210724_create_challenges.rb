@@ -2,7 +2,7 @@ class CreateChallenges < ActiveRecord::Migration[5.1]
   def change
     create_table :challenges do |t|
       t.string :name
-      t.string :description
+      t.string :challenge_descr
       t.boolean :acceptable
       t.string :cost_inaction_hy
       t.string :cost_inaction_yr

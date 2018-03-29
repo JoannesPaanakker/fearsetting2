@@ -40,12 +40,12 @@ class Api::V1::ChallengesController < Api::V1::BaseController
 
   def challenge_params
     params.require(:challenge).permit(
-      :description, :name, :acceptable, :cost_inaction_hy, :cost_inaction_yr, :cost_inaction_3y, :user_id, 
+      :challenge_descr, :name, :acceptable, :cost_inaction_hy, :cost_inaction_yr, :cost_inaction_3y, :user_id, 
       {
-        :benefits_attributes => [:description]
+        :benefits_attributes => [:benefit_descr]
       },
       {
-        :fears_attributes => [:description]
+        :fears_attributes => [:fear_descr]
       }
     )
   end
