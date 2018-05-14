@@ -1,2 +1,106 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+Inspired by Tim Ferriss: Fear-Setting: Why you should define your fears instead of your goals.<br><br>
+Schema by Kai Gotoh.<br><br>
+
+Demo API webserver by: <a href="https://www.qedwebdevelopment.com">https://www.qedwebdevelopment.com</a>.<br><br>
+SourceCode on GitHub: <a href="https://github.com/QEDWebDevelopoment/fearsetting2">https://github.com/QEDWebDevelopoment/fearsetting2</a>
+<br><br>
+<em>Usage</em>
+<br><br>
+
+Create user:<br><br>
+
+POST https://fearsetting.herokuapp.com/users
+<br><br>
+header:
+<br><br>
+[{"key":"Content-Type","value":"application/json","description":"","enabled":true}]
+<br><br>
+body (raw):
+<br><br>
+{ "user": {<br><br>
+    "email": "test5@example.com",<br><br>
+    "password": "123456",<br><br>
+    "password_confirmation": "123456"<br><br>
+  } }<br><br>
+
+Login user:<br><br>
+
+POST https://fearsetting.herokuapp.com/users/login<br><br>
+
+header:<br><br>
+
+[{"key":"Content-Type","value":"application/json","description":"","enabled":true}]<br><br>
+
+body (raw):<br><br>
+{<br><br>
+  "email": "test5@example.com",<br><br>
+  "password": "123456"<br><br>
+}<br><br>
+
+Get list of challenges for user:<br><br>
+
+GET https://fearsetting.herokuapp.com/api/v1/challenges/<br><br>
+
+header:<br><br>
+Authorization [authorisation token]<br><br>
+
+Get specific challenge:<br><br>
+
+GET https://fearsetting.herokuapp.com/api/v1/challenges/[challenge_id]<br><br>
+
+header:<br><br>
+Authorization: [authorisation token]<br><br>
+
+
+Create Challenge<br><br>
+
+POST https://fearsetting.herokuapp.com/api/v1/challenges<br><br>
+
+header:
+Authorization [authorisation token]
+[{"key":"Content-Type","value":"application/json","description":"","enabled":true}]
+
+body (raw):
+
+{ "challenge":
+  {
+    "challenge_descr": "Mijn Uitdaging", "cost_inaction_hy": "niet zoveel", "cost_inaction_yr": "behoorlijk", "cost_inaction_3y": "rampzalig", "acceptable": "false",
+    "benefits_attributes":
+    [
+      { "benefit_descr": "goed voor mij" },
+      { "benefit_descr": "En ook voor jou" }
+    ],
+    "fears_attributes":
+    [
+      { "fear_descr": "Fear1: Niet goed voor mij" },
+      { "fear_descr": "Fear2: Nog slechter"}
+    ]
+  }
+}
+
+Create Fear (en fixes en preventions)
+
+POST https://fearsetting.herokuapp.com/api/v1/fears
+
+header:
+Authorization [authorisation token]
+[{"key":"Content-Type","value":"application/json","description":"","enabled":true}]
+
+body (raw):
+
+{ "fear":
+  {
+    "challenge_id": "CHALLENGE_ID: you get this from the challenge index above (get list of challenges)",
+    "fear_descr": "Biggested Fear",
+    "preventions_attributes":
+    [
+      { "prevention_descr": "do not be scared" },
+      { "prevention_descr": "the force will be with you" }
+    ],
+    "fixes_attributes":
+    [
+      { "fix_descr": "Fix1: Call for help" },
+      { "fix_descr": "Fix2: zoom"}
+    ]
+  }
+}
