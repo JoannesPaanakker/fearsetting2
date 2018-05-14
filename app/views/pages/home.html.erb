@@ -17,10 +17,10 @@ header:
 <br><br>
 body (raw):
 <br><br>
-{ "user": {<br><br>
-    "email": "test5@example.com",<br><br>
-    "password": "123456",<br><br>
-    "password_confirmation": "123456"<br><br>
+{ "user": {<br>
+    "email": "test5@example.com",<br>
+    "password": "123456",<br>
+    "password_confirmation": "123456"<br>
   } }<br><br>
 
 Login user:<br><br>
@@ -32,9 +32,9 @@ header:<br><br>
 [{"key":"Content-Type","value":"application/json","description":"","enabled":true}]<br><br>
 
 body (raw):<br><br>
-{<br><br>
-  "email": "test5@example.com",<br><br>
-  "password": "123456"<br><br>
+{<br>
+  "email": "test5@example.com",<br>
+  "password": "123456"<br>
 }<br><br>
 
 Get list of challenges for user:<br><br>
@@ -56,46 +56,46 @@ Create Challenge<br><br>
 
 POST https://fearsetting.herokuapp.com/api/v1/challenges<br><br>
 
-header:
-Authorization [authorisation token]
-[{"key":"Content-Type","value":"application/json","description":"","enabled":true}]
+header:<br><br>
+Authorization [authorisation token]<br>
+[{"key":"Content-Type","value":"application/json","description":"","enabled":true}]<br><br>
 
-body (raw):
+body (raw):<br><br>
 
-{ "challenge":
-  {
+{ "challenge":<br>
+  {<br>
     "challenge_descr": "Mijn Uitdaging", "cost_inaction_hy": "niet zoveel", "cost_inaction_yr": "behoorlijk", "cost_inaction_3y": "rampzalig", "acceptable": "false",
-    "benefits_attributes":
-    [
-      { "benefit_descr": "goed voor mij" },
-      { "benefit_descr": "En ook voor jou" }
-    ],
-    "fears_attributes":
-    [
-      { "fear_descr": "Fear1: Niet goed voor mij" },
-      { "fear_descr": "Fear2: Nog slechter"}
-    ]
-  }
-}
+    "benefits_attributes":<br>
+    [<br>
+      { "benefit_descr": "goed voor mij" },<br>
+      { "benefit_descr": "En ook voor jou" }<br>
+    ],<br>
+    "fears_attributes":<br>
+    [<br>
+      { "fear_descr": "Fear1: Niet goed voor mij" },<br>
+      { "fear_descr": "Fear2: Nog slechter"}<br>
+    ]<br>
+  }<br>
+}<br>
 
-Create Fear (en fixes en preventions)
+Create Fear (en fixes en preventions)<br><br>
 
-POST https://fearsetting.herokuapp.com/api/v1/fears
+POST https://fearsetting.herokuapp.com/api/v1/fears<br><br>
 
-header:
-Authorization [authorisation token]
-[{"key":"Content-Type","value":"application/json","description":"","enabled":true}]
+header:<br><br>
+Authorization [authorisation token]<br>
+[{"key":"Content-Type","value":"application/json","description":"","enabled":true}]<br><br>
 
-body (raw):
+body (raw):<br><br>
 
-{ "fear":
-  {
-    "challenge_id": "CHALLENGE_ID: you get this from the challenge index above (get list of challenges)",
-    "fear_descr": "Biggested Fear",
-    "preventions_attributes":
-    [
-      { "prevention_descr": "do not be scared" },
-      { "prevention_descr": "the force will be with you" }
+{ "fear":<br>
+  {<br>
+    "challenge_id": "CHALLENGE_ID: you get this from the challenge index above (get list of challenges)",<br>
+    "fear_descr": "Biggested Fear",<br>
+    "preventions_attributes":<br>
+    [<br>
+      { "prevention_descr": "do not be scared" },<br>
+      { "prevention_descr": "the force will be with you" }<br>
     ],
     "fixes_attributes":
     [
